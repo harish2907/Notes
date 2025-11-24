@@ -32,3 +32,12 @@ Private Sub Worksheet_SelectionChange(ByVal Target As Range) If Target.Cells.Cou
 
 Search field:
 =CHOOSECOLS(FILTER(_T24,ISNUMBER(SEARCH($B$1,_T24[ORIG_FIELD_IDENT]))+ISNUMBER(SEARCH($B$1,_T24[DICT_TEXT])),"NotFound"),1,2,7,8,9,10,11)
+
+
+
+=IFERROR (TEXTJOIN(", ", TRUE, FILTER($J$124:$J$650, ISNUMBER (SEARCH ($J$124:$J$650, C2)))),"")
+
+=LET (parts, TRIM (TEXTSPLIT (A1, ",")), lens, LEN (parts), pos, XMATCH (MAX (lens), lens, 0), INDEX (parts, pos)) 
+
+
+=IF(IFERROR (VLOOKUP (H2, Tablel [#All],2),"")=0, "SOFT", IF (IFERROR (VLOOKUP (H2, Tablel[#All],2),"")=1, "HARD", ""))
